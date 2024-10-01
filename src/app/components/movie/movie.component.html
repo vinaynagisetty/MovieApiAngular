@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Movie List</h1>
+  <button class="btn btn-danger">Button</button>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let movie of movies">
+        <div class="card movie-card">
+          <img
+            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+            alt="{{ movie.title }}"
+            class="card-img-top movie-poster"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.title }}</h5>
+            <p class="card-text">{{ movie.overview | slice: 0:80 }}...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="pagination d-flex justify-content-center mt-4">
+      <button
+        class="btn btn-primary me-2"
+        (click)="onPageChange(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        Previous
+      </button>
+      <span class="align-self-center">Page {{ currentPage }} of {{ totalPages }}</span>
+      <button
+        class="btn btn-primary ms-2"
+        (click)="onPageChange(currentPage + 1)"
+        [disabled]="currentPage === totalPages"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+  
