@@ -12,7 +12,7 @@ movies: any[] = [];
   totalResults: number = 0;
   currentPage: number = 1;
   totalPages: number=0;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 20;
   allMovies: any[] = [];  // To store all fetched movies
   ngOnInit(): void {
     this.loadAllMovies();
